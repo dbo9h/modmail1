@@ -708,7 +708,7 @@ class ModmailBot(commands.Bot):
             if delta:
                 await message.channel.send(
                     embed=discord.Embed(
-                        title="Message not sent!",
+                        title="لم يتم إرسال الرسالة!",
                         description=f"{delta} للتواصل معنا مجددا يجب عليك الإنتظار ",
                         color=self.error_color,
                     )
@@ -1097,13 +1097,13 @@ class ModmailBot(commands.Bot):
         try:
             await thread.delete_message(message, note=False)
             embed = discord.Embed(
-                description="Successfully deleted message.", color=self.main_color
+                description="تم حذف الرساله بنجاح", color=self.main_color
             )
         except ValueError as e:
             if str(e) not in {"DM message not found.", "Malformed thread message."}:
                 logger.debug("Failed to find linked message to delete: %s", e)
                 embed = discord.Embed(
-                    description="Failed to delete message.", color=self.error_color
+                    description="فشل حذف الرسالة", color=self.error_color
                 )
             else:
                 return
@@ -1133,7 +1133,7 @@ class ModmailBot(commands.Bot):
                 await self.add_reaction(after, blocked_emoji)
             else:
                 embed = discord.Embed(
-                    description="Successfully Edited Message", color=self.main_color
+                    description="تم تحرير الرسالة بنجاح", color=self.main_color
                 )
                 embed.set_footer(text=f"Message ID: {after.id}")
                 await after.channel.send(embed=embed)
