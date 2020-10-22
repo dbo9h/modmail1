@@ -709,7 +709,7 @@ class ModmailBot(commands.Bot):
                 await message.channel.send(
                     embed=discord.Embed(
                         title="Message not sent!",
-                        description=f"You must wait for {delta} before you can contact me again.",
+                        description=f"{delta} للتواصل معنا مجددا يجب عليك الإنتظار ",
                         color=self.error_color,
                     )
                 )
